@@ -36,6 +36,8 @@ CREATE TABLE {{ database }}.{{ schema }}.{{ table_name }}
     `email_hashed` Nullable(String),
     -- Optional: Hashed phone number
     `phone_hashed` Nullable(String),
+    -- Customer payload in JSON
+    `customer` Nullable(String),
     -- Context payload in JSON
     `context` Nullable(String),
     -- Event properties in JSON
