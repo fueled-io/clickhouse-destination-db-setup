@@ -1,6 +1,6 @@
 -- Template for creating a materialized view
 -- Variables: {{ source_table }}, {{ target_table }}
-CREATE MATERIALIZED VIEW {{ target_table }} TO {{ target_table }}
+CREATE MATERIALIZED VIEW {{ target_table }}_mv TO {{ target_table }}
 (
     -- Column definitions for the target table
     `merchantId` String,
