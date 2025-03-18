@@ -20,6 +20,7 @@ CREATE MATERIALIZED VIEW {{ target_table }} TO {{ target_table }}
     `userId` Nullable(String),
     `email_hashed` Nullable(String),
     `phone_hashed` Nullable(String),
+    `customer` Nullable(String),
     `context` Nullable(String),
     `properties` Nullable(String)
 )
@@ -54,6 +55,7 @@ SELECT
     nullIf(traits_fueledExternalId, '') AS fueledExternalId,
     nullIf(coalesce(traits_email, customer_email), '') AS email_hashed,
     nullIf(coalesce(traits_phone, customer_phone), '') AS phone_hashed,
+    nullIf(customer, '') AS customer,
     nullIf(context, '') AS context,
     nullIf(coalesce(nullIf(properties, ''), nullIf(checkout, ''), nullIf(order, '')), '') AS properties
 FROM {{ source_table }}
